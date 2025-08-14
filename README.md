@@ -1,43 +1,45 @@
 ### **Projeto de Machine Learning: Previsão de Churn na TelecomX**
 
-Este repositório contém a segunda parte do projeto de análise de churn, focada na construção de modelos de Machine Learning para prever a evasão de clientes. O objetivo é utilizar o dataset tratado para desenvolver um modelo preditivo robusto e compará-lo com outros modelos.
+Este repositório contém a segunda parte do projeto de análise de churn, com o objetivo principal de construir um modelo preditivo para identificar clientes propensos à evasão. O projeto utiliza o dataset tratado da primeira fase para aplicar técnicas de Machine Learning e fornecer um modelo robusto para a tomada de decisões estratégicas.
 
-### **📋 Descrição do Projeto**
+### **📋 Estrutura do Projeto**
 
-O projeto segue um pipeline de Machine Learning completo, que inclui:
-- **Pré-processamento**: Preparação e codificação das variáveis para os modelos.
-- **Divisão de Dados**: Separação do dataset em conjuntos de treino e teste.
-- **Modelagem**: Construção de modelos de **Regressão Logística** e **Árvore de Decisão**.
-- **Avaliação**: Análise do desempenho dos modelos usando métricas como acurácia, precisão e recall.
+O projeto é organizado com a seguinte estrutura de arquivos:
+- `TelecomX_challenge3.ipynb`: O notebook principal que documenta todo o pipeline de Machine Learning, desde o pré-processamento até a avaliação dos modelos.
+- `df_telecom_tratado.csv`: O conjunto de dados tratado, resultado da etapa de limpeza e análise da primeira parte do projeto, servindo como ponto de partida para a modelagem.
 
-### **🛠️ Tecnologias Utilizadas**
+### **📊 Metodologia e Processo de Análise**
 
-- **Python**: Linguagem principal para a análise.
-- **Pandas**: Para a manipulação dos dados.
-- **Scikit-learn**: Principal biblioteca para a construção e avaliação dos modelos de Machine Learning.
-- **Matplotlib/Seaborn**: Para a visualização de correlação.
+A metodologia seguiu um fluxo completo de Machine Learning:
 
-### **📁 Estrutura do Repositório**
+#### **1. Preparação dos Dados**
 
-- `TelecomX_challenge3.ipynb`: O caderno Jupyter que contém todo o código para o pipeline de Machine Learning, desde a preparação dos dados até o relatório final.
-- `df_telecom_tratado.csv`: O dataset limpo e preparado, resultado da primeira parte do projeto.
+- **Classificação de Variáveis**: As variáveis foram classificadas entre numéricas (e.g., `Gastos_Mensais`) e categóricas (e.g., `Contrato`, `Metodo_Pagamento`).
+- **Codificação de Variáveis**: As variáveis categóricas binárias (`Churn`, `Gênero`, `Parceiro`, `Dependentes`) foram codificadas como 0 e 1 (Label Encoding). As demais variáveis categóricas foram transformadas usando **One-Hot Encoding** para que os modelos as interpretassem corretamente.
+- **Divisão em Conjuntos de Treino e Teste**: Os dados foram separados em 75% para treino e 25% para teste, garantindo que o modelo fosse avaliado em um conjunto de dados que ele nunca viu antes, evitando o *overfitting*.
 
-### **📊 Metodologia e Resultados**
+#### **2. Modelagem Preditiva e Avaliação**
 
-- **Preparação dos Dados**: Variáveis categóricas foram transformadas utilizando One-Hot Encoding.
-- **Seleção de Variáveis**: Uma matriz de correlação foi utilizada para identificar as variáveis com maior relação com o Churn, como `Contrato` e `Gastos_Mensais`.
-- **Avaliação dos Modelos**:
-  - **Regressão Logística**: Obteve uma **Acurácia de 82%** e um **Recall de 55%** na identificação de Churn.
-  - **Árvore de Decisão**: Obteve uma **Acurácia de 73%** e um **Recall de 50%**.
+Dois modelos de classificação foram implementados e comparados:
+- **Regressão Logística**: Um modelo simples, mas robusto, que alcançou uma **Acurácia de 82%** e um **Recall de 55%** para a classe de Churn.
+- **Árvore de Decisão**: Um modelo mais interpretável, que obteve uma **Acurácia de 73%** e um **Recall de 50%**.
 
-### **💡 Conclusão Final**
+### **🔍 Insights Obtidos e Conclusão**
 
-A **Regressão Logística** demonstrou ser o modelo mais eficaz para este problema de classificação, apresentando um desempenho superior na acurácia e, mais importante, na identificação dos clientes propensos ao Churn.
+A análise de correlação (heatmap) revelou insights importantes, como a forte relação entre **contratos mensais** e o **método de pagamento via Cheque Eletrônico** com o Churn.
 
-### **🚀 Como Executar o Projeto**
+Com base na avaliação de desempenho, a **Regressão Logística** foi a escolha mais eficaz para este projeto, superando a Árvore de Decisão em todas as métricas-chave.
 
-Para executar este projeto, você precisará ter o Python e as bibliotecas listadas instaladas.
+### **🛠️ Tecnologias e Dependências**
 
-1.  Clone este repositório.
-2.  Abra o arquivo `TelecomX_challenge3.ipynb` em seu ambiente de desenvolvimento.
-3.  Siga o notebook passo a passo para reproduzir a análise.
+- Python
+- Pandas
+- Scikit-learn
+- Matplotlib & Seaborn
+
+### **🚀 Como Executar o Notebook**
+
+Para rodar o notebook e reproduzir a análise, certifique-se de que as bibliotecas listadas acima estão instaladas em seu ambiente e siga as instruções:
+1.  Clone o repositório.
+2.  Faça o upload do arquivo `df_telecom_tratado.csv` para o ambiente do notebook.
+3.  Execute as células sequencialmente.
